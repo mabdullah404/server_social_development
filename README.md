@@ -71,6 +71,9 @@ npm start
 - **GET `/events/:id`**
   - **কাজ:** নির্দিষ্ট কোনো ইভেন্টের সম্পূর্ণ বিস্তারিত তথ্য দেখা (Event Details Page)।
 
+- **GET `/events-stats`**
+  - **কাজ:** মোট ইভেন্ট ও মোট জয়েন করা ইউজারের সংখ্যা দেখা।
+
 ---
 
 ### ৩. প্রাইভেট রাউটসমূহ (লগইন করা আবশ্যক - JWT ভেরিফাইড)
@@ -122,3 +125,17 @@ npm start
 
 - **GET `/joined-events?email=user@example.com` (Joined Events)**
   - **কাজ:** লগইন করা ইউজারের জয়েন করা সকল ইভেন্ট তারিখ অনুযায়ী সাজিয়ে দেখা।
+
+- **GET `/users/profile?email=user@example.com` (Get Profile - Optional Feature)**
+  - **কাজ:** ইউজারের প্রোফাইল ডাটা পাওয়া।
+
+- **PUT `/users/profile` (Update Profile - Optional Feature)**
+  - **কাজ:** ইউজারের নাম ও প্রোফাইল ছবি আপডেট করা।
+  - **Body:**
+    ```json
+    {
+      "email": "user@example.com",
+      "name": "Updated Name",
+      "photoURL": "https://example.com/photo.jpg"
+    }
+    ```
