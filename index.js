@@ -518,8 +518,28 @@ async function run() {
 run().catch(console.dir);
 
 // ==========================================
-// ৭. সার্ভার লিসেনিং
+// ৭. ৪০৪ এবং গ্লোবাল এরর হ্যান্ডলিং মিডলওয়্যার
+// ==========================================
+app.use((req, res, next) => {
+  res.status(404).send({
+    success: false,
+    message: "অনুরোধকৃত রাউটটি খুঁজে পাওয়া যায়নি (Route Not Found)!",
+  });
+});
+
+app.use((err, req, res, next) => {
+  console.error("সার্ভার এরর:", err.stack);
+  res.status(500).send({
+    success: false,
+    message: "সার্ভারে অপ্রত্যাশিত কোনো সমস্যা দেখা দিয়েছে!",
+  });
+});
+
+// ==========================================
+// ৮. সার্ভার লিসেনিং ও এক্সপোর্ট
 // ==========================================
 app.listen(port, () => {
   console.log(`Social Development Server চালু রয়েছে পোর্ট: ${port}-এ`);
 });
+
+export default app;
