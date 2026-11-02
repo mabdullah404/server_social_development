@@ -263,11 +263,8 @@ async function run() {
     // রিকোয়ারমেন্ট: User will be able to see all events created by them.
     app.get("/manage-events", verifyToken, async (req, res) => {
       try {
-        const email = req.query.email;
-
-        if (!email) {
-          return res.status(400).send({ message: "ইমেইল প্যারামিটার দেওয়া আবশ্যক!" });
-        }
+        // ফ্রন্টএন্ড থেকে কুয়েরিতে ইমেইল পাঠানো হলে তা নেবে, না পাঠালে টোকেনের ইমেইল ব্যবহার করবে
+        const email = req.query.email || req.user.email;
 
         // টোকেনের ইমেইলের সাথে ক্লায়েন্টের ইমেইল ভেরিফাই করা
         if (req.user.email !== email) {
@@ -434,11 +431,8 @@ async function run() {
     // রিকোয়ারমেন্ট: This page will show all events joined by the logged-in user. Show events sorted by event date.
     app.get("/joined-events", verifyToken, async (req, res) => {
       try {
-        const email = req.query.email;
-
-        if (!email) {
-          return res.status(400).send({ message: "ইমেইল প্যারামিটার দেওয়া আবশ্যক!" });
-        }
+        // ফ্রন্টএন্ড থেকে কুয়েরিতে ইমেইল পাঠানো হলে তা নেবে, অন্যথায় টোকেনের ইমেইল ব্যবহার করবে
+        const email = req.query.email || req.user.email;
 
         if (req.user.email !== email) {
           return res.status(403).send({ message: "অননুমোদিত এক্সেস!" });
