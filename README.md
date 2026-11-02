@@ -12,13 +12,13 @@
 
 ---
 
-## 📋 এনভায়রনমেন্ট ভেরিয়েবল (.env)
-প্রজেক্টের রুট ডিরেক্টরিতে `.env` ফাইলে নিচের তথ্যগুলো দেওয়া আছে:
+## 📋 এনভায়রনমেন্ট ভেরিয়েবল (.env.example)
+প্রজেক্টের রুট ডিরেক্টরিতে একটি `.env` ফাইল তৈরি করে নিচের ভ্যারিয়েবলগুলো কনফিগার করুন:
 ```env
-MONGODB_USER=SocialDevelopment
-MONGODB_PASS=nlIYFRism5X8RPDE
+MONGODB_USER=your_mongodb_username
+MONGODB_PASS=your_mongodb_password
 PORT=5000
-JWT_SECRET=super_secret_social_dev_key_2026
+JWT_SECRET=your_jwt_secret_key
 ```
 
 ---
