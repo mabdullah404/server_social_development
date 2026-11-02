@@ -509,6 +509,16 @@ async function run() {
       }
     });
 
+    // ----------------------------------------------------
+    // ছ. ৪০৪ হ্যান্ডলার (সব রাউটের নিচে থাকবে)
+    // ----------------------------------------------------
+    app.use((req, res) => {
+      res.status(404).send({
+        success: false,
+        message: "অনুরোধকৃত রাউটটি খুঁজে পাওয়া যায়নি (Route Not Found)!",
+      });
+    });
+
   } catch (error) {
     console.error("MongoDB কানেকশনে সমস্যা:", error);
   }
@@ -518,15 +528,8 @@ async function run() {
 run().catch(console.dir);
 
 // ==========================================
-// ৭. ৪০৪ এবং গ্লোবাল এরর হ্যান্ডলিং মিডলওয়্যার
+// ৭. গ্লোবাল এরর হ্যান্ডলিং মিডলওয়্যার
 // ==========================================
-app.use((req, res, next) => {
-  res.status(404).send({
-    success: false,
-    message: "অনুরোধকৃত রাউটটি খুঁজে পাওয়া যায়নি (Route Not Found)!",
-  });
-});
-
 app.use((err, req, res, next) => {
   console.error("সার্ভার এরর:", err.stack);
   res.status(500).send({
