@@ -4,6 +4,21 @@
 
 ---
 
+## 🌐 লাইভ লিঙ্কসমূহ (Live URLs)
+- **Live Client Site (Frontend):** [https://social-development-platform.vercel.app](https://social-development-platform.vercel.app)
+- **Live Server API (Backend):** [https://social-development-server-sigma.vercel.app](https://social-development-server-sigma.vercel.app)
+
+---
+
+## ✨ প্ল্যাটফর্মের মূল বৈশিষ্ট্যসমূহ (Core Features)
+- **আসন্ন সমাজসেবা ইভেন্ট তালিকা:** স্থানীয় বিভিন্ন মানবিক উদ্যোগ ও ক্যাম্পেইনের তালিকা প্রদর্শন।
+- **হোমপেজ সাম্প্রতিক ইভেন্ট (.limit(6)):** মঙ্গোডিবির কুয়েরি দিয়ে তাৎক্ষণিক ৬টি আসন্ন ইভেন্ট রেন্ডার।
+- **নিরাপদ ইভেন্ট ক্রিয়েশন ও ভ্যালিডেশন:** অতীতের তারিখ ব্লক করে শুধু ভবিষ্যৎ তারিখের জন্য ইভেন্ট তৈরি ও ইউজারের ইমেইল ট্র্যাক।
+- **ইভেন্টে অংশগ্রহণ (Join Event):** ভলান্টিয়ার হিসেবে একক ক্লিকে ইভেন্টে জয়েন ও ডুপ্লিকেট রেজিস্ট্রেশন প্রতিরোধ।
+- **JWT সিকিউরিটি ও ইউজার অথোরাইজেশন:** প্রাইভেট রাউটগুলো (Create, Manage, Joined) নিরাপদ রাখতে বিয়ারার টোকেন ভেরিফিকেশন।
+
+---
+
 ## 🛠️ ব্যবহৃত টেকনোলজি (Tech Stack)
 - **Node.js** & **Express.js** (Backend Framework)
 - **MongoDB Native Driver** (Database)
