@@ -158,10 +158,14 @@ async function run() {
           ];
         }
 
-        const events = await eventsCollection
-          .find(query)
-          .sort({ eventDate: 1 })
-          .toArray();
+        let cursor = eventsCollection.find(query).sort({ eventDate: 1 });
+
+        // যদি কুয়েরিতে limit প্যারামিটার থাকে (যেমন: ?limit=6)
+        if (req.query.limit) {
+          cursor = cursor.limit(parseInt(req.query.limit));
+        }
+
+        const events = await cursor.toArray();
 
         res.send(events);
       } catch (error) {
